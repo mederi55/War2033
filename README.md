@@ -2,7 +2,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IventWar 2033 - Статус Сервера</title>
+  <title>IventWar 2033 - Сервер</title>
   <style>
     body {
       background: radial-gradient(circle, #1a1a1a, #000);
@@ -24,17 +24,12 @@
       font-size: 1.2em;
       max-width: 600px;
     }
-    #status {
-      margin-top: 20px;
-      font-size: 1.5em;
+    #ip {
+      margin-top: 30px;
+      font-size: 1.3em;
       padding: 10px 20px;
+      background-color: #264653;
       border-radius: 10px;
-    }
-    .online {
-      background-color: #2a9d8f;
-    }
-    .offline {
-      background-color: #e76f51;
     }
   </style>
 </head>
@@ -45,26 +40,6 @@
     Человечество на грани исчезновения.<br />
     Разрушенные города, опустевшие земли, и лишь горстка героев решает судьбу планеты.<br /><br />
     <strong>Сможешь ли ты спасти этот мир... или обрушишь его в пепел?</strong>
-  </p>  <div id="status" class="offline">Проверка статуса сервера...</div>  <script>
-    async function checkServerStatus() {
-      try {
-        const response = await fetch("https://api.mcstatus.io/v2/status/java/Iventwar2033.aternos.me:56896");
-        const data = await response.json();
-        const statusDiv = document.getElementById("status");
-
-        if (data.online) {
-          statusDiv.textContent = "Сервер онлайн — игроков: " + data.players.online;
-          statusDiv.className = "online";
-        } else {
-          statusDiv.textContent = "Сервер оффлайн";
-          statusDiv.className = "offline";
-        }
-      } catch (error) {
-        document.getElementById("status").textContent = "Ошибка проверки статуса.";
-      }
-    }
-
-    checkServerStatus();
-    setInterval(checkServerStatus, 30000); // проверять каждые 30 сек
-  </script></body>
+  </p>  <div id="ip">IP сервера: <strong>Iventwar2033.aternos.me:56896</strong></div>
+</body>
 </html>
